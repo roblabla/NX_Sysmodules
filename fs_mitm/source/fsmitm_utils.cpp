@@ -52,9 +52,9 @@ Result Utils::OpenSdFileForAtmosphere(u64 title_id, const char *fn, int flags, F
     
     char path[FS_MAX_PATH];
     if (*fn == '/') {
-        snprintf(path, sizeof(path), "/atmosphere/titles/%016lx%s", title_id, fn);
+        snprintf(path, sizeof(path), "/ReiNX/titles/%016lx%s", title_id, fn);
     } else {
-        snprintf(path, sizeof(path), "/atmosphere/titles/%016lx/%s", title_id, fn);
+        snprintf(path, sizeof(path), "/ReiNX/titles/%016lx/%s", title_id, fn);
     }
     return fsFsOpenFile(&g_sd_filesystem, path, flags, out);
 }
@@ -85,9 +85,9 @@ Result Utils::OpenSdDirForAtmosphere(u64 title_id, const char *path, FsDir *out)
     
     char safe_path[FS_MAX_PATH];
     if (*path == '/') {
-        snprintf(safe_path, sizeof(safe_path), "/atmosphere/titles/%016lx%s", title_id, path);
+        snprintf(safe_path, sizeof(safe_path), "/ReiNX/titles/%016lx%s", title_id, path);
     } else {
-        snprintf(safe_path, sizeof(safe_path), "/atmosphere/titles/%016lx/%s", title_id, path);
+        snprintf(safe_path, sizeof(safe_path), "/ReiNX/titles/%016lx/%s", title_id, path);
     }
     return fsFsOpenDirectory(&g_sd_filesystem, safe_path, FS_DIROPEN_DIRECTORY | FS_DIROPEN_FILE, out);
 }
@@ -105,9 +105,9 @@ Result Utils::OpenRomFSSdDir(u64 title_id, const char *path, FsDir *out) {
 Result Utils::OpenRomFSFile(FsFileSystem *fs, u64 title_id, const char *fn, int flags, FsFile *out) {
     char path[FS_MAX_PATH];
     if (*fn == '/') {
-        snprintf(path, sizeof(path), "/atmosphere/titles/%016lx/romfs%s", title_id, fn);
+        snprintf(path, sizeof(path), "/ReiNX/titles/%016lx/romfs%s", title_id, fn);
     } else {
-        snprintf(path, sizeof(path), "/atmosphere/titles/%016lx/romfs/%s", title_id, fn);
+        snprintf(path, sizeof(path), "/ReiNX/titles/%016lx/romfs/%s", title_id, fn);
     }
     return fsFsOpenFile(fs, path, flags, out);
 }
@@ -115,9 +115,9 @@ Result Utils::OpenRomFSFile(FsFileSystem *fs, u64 title_id, const char *fn, int 
 Result Utils::OpenRomFSDir(FsFileSystem *fs, u64 title_id, const char *path, FsDir *out) {
     char safe_path[FS_MAX_PATH];
     if (*path == '/') {
-        snprintf(safe_path, sizeof(safe_path), "/atmosphere/titles/%016lx/romfs%s", title_id, path);
+        snprintf(safe_path, sizeof(safe_path), "/ReiNX/titles/%016lx/romfs%s", title_id, path);
     } else {
-        snprintf(safe_path, sizeof(safe_path), "/atmosphere/titles/%016lx/romfs/%s", title_id, path);
+        snprintf(safe_path, sizeof(safe_path), "/ReiNX/titles/%016lx/romfs/%s", title_id, path);
     }
     return fsFsOpenDirectory(fs, safe_path, FS_DIROPEN_DIRECTORY | FS_DIROPEN_FILE, out);
 }
